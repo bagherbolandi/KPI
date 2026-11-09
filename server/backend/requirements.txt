@@ -1,0 +1,13 @@
+SQLAlchemy==2.0.51
+arabic-reshaper==3.0.1
+bcrypt==5.0.0
+fastapi==0.141.1
+jdatetime==6.0.2
+openpyxl==3.1.5
+pydantic==2.13.4
+python-bidi==0.6.11
+python-jose==3.5.0
+python-multipart==0.0.32
+reportlab==5.0.0
+uvicorn==0.52.1
+psycopg[binary]==3.2.3

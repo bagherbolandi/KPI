@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1160 620" font-family="Vazirmatn, Tahoma, sans-serif" direction="rtl">
+  <defs>
+    <filter id="s" x="-6%" y="-6%" width="112%" height="118%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#12315b" flood-opacity="0.16"/></filter>
+    <marker id="a" markerWidth="11" markerHeight="11" refX="8" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 Z" fill="#475569"/></marker>
+    <marker id="ar" markerWidth="11" markerHeight="11" refX="8" refY="3.5" orient="auto"><path d="M0,0 L8,3.5 L0,7 Z" fill="#dc2626"/></marker>
+  </defs>
+  <rect width="1160" height="620" fill="#f4f6fb"/>
+  <text x="580" y="42" text-anchor="middle" font-size="23" font-weight="bold" fill="#12315b">گردش‌کار ثبت و تأیید شاخص (KPI Data Workflow)</text>
+
+  <!-- swimlanes -->
+  <g font-size="13" font-weight="bold" fill="#1e4785">
+    <rect x="40" y="80" width="1080" height="120" fill="#eef2fb" rx="10"/><text x="1100" y="145" text-anchor="end">مالک فرایند</text>
+    <rect x="40" y="215" width="1080" height="120" fill="#e8f5ee" rx="10"/><text x="1100" y="280" text-anchor="end">تضمین/مدیر کیفیت</text>
+    <rect x="40" y="350" width="1080" height="120" fill="#fef6e7" rx="10"/><text x="1100" y="415" text-anchor="end">مدیریت (در صورت نیاز)</text>
+    <rect x="40" y="485" width="1080" height="100" fill="#f1f5f9" rx="10"/><text x="1100" y="540" text-anchor="end">سیستم (خودکار)</text>
+  </g>
+
+  <!-- lane 1: owner -->
+  <g filter="url(#s)"><rect x="120" y="105" width="160" height="66" rx="10" fill="#fff" stroke="#c7d3ec"/><text x="200" y="132" text-anchor="middle" font-size="13" font-weight="bold">۱. ثبت مقدار واقعی</text><text x="200" y="153" text-anchor="middle" font-size="11" fill="#64748b">+ علت انحراف/اقدام</text></g>
+  <g filter="url(#s)"><rect x="330" y="105" width="150" height="66" rx="10" fill="#2563eb" stroke="#1d4ed8"/><text x="405" y="132" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">۲. ارسال (submit)</text><text x="405" y="153" text-anchor="middle" font-size="11" fill="#dbeafe">وضعیت: submitted</text></g>
+
+  <!-- lane 2: quality -->
+  <g filter="url(#s)"><rect x="330" y="240" width="150" height="66" rx="10" fill="#fff" stroke="#b6e0c8"/><text x="405" y="267" text-anchor="middle" font-size="13" font-weight="bold">۳. بررسی کیفیت</text><text x="405" y="288" text-anchor="middle" font-size="11" fill="#64748b">review / reject</text></g>
+  <g filter="url(#s)"><rect x="560" y="240" width="150" height="66" rx="10" fill="#16a34a" stroke="#15803d"/><text x="635" y="267" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">۴. تأیید کیفیت</text><text x="635" y="288" text-anchor="middle" font-size="11" fill="#dcfce7">qc_reviewed</text></g>
+
+  <!-- lane 3: mgmt -->
+  <g filter="url(#s)"><rect x="790" y="375" width="170" height="66" rx="10" fill="#12315b"/><text x="875" y="402" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">۵. تأیید نهایی</text><text x="875" y="423" text-anchor="middle" font-size="11" fill="#cdd9ec">approved (قفل رکورد)</text></g>
+
+  <!-- lane 4: system -->
+  <g filter="url(#s)"><rect x="120" y="500" width="230" height="66" rx="10" fill="#fff" stroke="#cbd5e1"/><text x="235" y="527" text-anchor="middle" font-size="12.5" font-weight="bold">محاسبه درصد تحقق</text><text x="235" y="548" text-anchor="middle" font-size="11" fill="#64748b">صعودی/نزولی · سقف ۱۰۰٪</text></g>
+  <g filter="url(#s)"><rect x="380" y="500" width="230" height="66" rx="10" fill="#fff" stroke="#cbd5e1"/><text x="495" y="527" text-anchor="middle" font-size="12.5" font-weight="bold">تعیین وضعیت</text><text x="495" y="548" text-anchor="middle" font-size="11" fill="#64748b">🟢 ≥۸۵٪ · 🟡 ≥۶۰٪ · 🔴 &lt;۶۰٪</text></g>
+  <g filter="url(#s)"><rect x="640" y="500" width="230" height="66" rx="10" fill="#fff" stroke="#cbd5e1"/><text x="755" y="527" text-anchor="middle" font-size="12.5" font-weight="bold">ثبت در Audit-Log</text><text x="755" y="548" text-anchor="middle" font-size="11" fill="#64748b">هر تغییر + به‌روزرسانی داشبورد</text></g>
+
+  <!-- arrows -->
+  <path d="M330,138 L280,138" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#a)"/>
+  <path d="M405,171 L405,240" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#a)"/>
+  <path d="M480,273 L560,273" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#a)"/>
+  <path d="M635,306 C635,345 820,345 850,375" fill="none" stroke="#475569" stroke-width="1.8" marker-end="url(#a)"/>
+  <!-- reject back -->
+  <path d="M380,290 C300,320 260,200 275,171" fill="none" stroke="#dc2626" stroke-width="1.6" stroke-dasharray="5,4" marker-end="url(#ar)"/>
+  <text x="250" y="210" font-size="11" fill="#dc2626">رد ← اصلاح</text>
+  <!-- system trigger -->
+  <path d="M405,171 C120,200 120,470 200,500" fill="none" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="3,3" marker-end="url(#a)"/>
+  <text x="70" y="330" font-size="10.5" fill="#94a3b8">در هر ثبت/تغییر</text>
+
+  <text x="580" y="605" text-anchor="middle" font-size="11.5" fill="#64748b">مسیر کوتاه: برای شاخص‌های غیرکلیدی، «تأیید نهایی» توسط مدیر کیفیت انجام می‌شود؛ گام مدیریت فقط برای شاخص‌های استراتژیک الزامی است.</text>
+</svg>

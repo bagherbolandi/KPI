@@ -1,0 +1,25 @@
+# ─────────────────────────────────────────────────────────────
+#  systemd unit برای اجرای KPI-MS بدون Docker (نصب دستی)
+#  نصب:
+#    sudo cp deploy/kpi-ms.service /etc/systemd/system/kpi-ms.service
+#    sudo systemctl daemon-reload
+#    sudo systemctl enable --now kpi-ms
+#  مشاهده لاگ:  sudo journalctl -u kpi-ms -f
+# ─────────────────────────────────────────────────────────────
+[Unit]
+Description=KPI Management System (KPI-MS)
+After=network.target postgresql.service
+
+[Service]
+Type=simple
+User=kpi
+Group=kpi
+WorkingDirectory=/opt/kpi-system/backend
+# فایل متغیرهای محیطی (DATABASE_URL و KPI_SECRET_KEY)
+EnvironmentFile=/opt/kpi-system/backend/.env
+ExecStart=/opt/kpi-system/.venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000 --workers 4
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 860" font-family="Vazirmatn, Tahoma, sans-serif">
+  <defs>
+    <filter id="s" x="-5%" y="-5%" width="110%" height="115%"><feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#12315b" flood-opacity="0.18"/></filter>
+    <marker id="one" markerWidth="14" markerHeight="14" refX="7" refY="7" orient="auto"><path d="M7,1 L7,13" stroke="#475569" stroke-width="1.6"/></marker>
+    <marker id="many" markerWidth="16" markerHeight="16" refX="2" refY="8" orient="auto"><path d="M14,2 L2,8 L14,14" fill="none" stroke="#475569" stroke-width="1.6"/></marker>
+  </defs>
+  <rect width="1200" height="860" fill="#f4f6fb"/>
+  <text x="600" y="40" text-anchor="middle" font-size="24" font-weight="bold" fill="#12315b" direction="rtl">مدل داده (ERD) — سامانه KPI-MS</text>
+  <text x="600" y="64" text-anchor="middle" font-size="13" fill="#64748b">Entity–Relationship Diagram · 8 core tables</text>
+
+  <!-- table renderer style -->
+  <style>
+    .tt{fill:#fff;stroke:#c7d3ec;rx:10}
+    .th{fill:#1e4785}
+    .thh{fill:#fff;font-size:13.5px;font-weight:bold}
+    .fld{font-size:11.5px;fill:#0f172a}
+    .pk{font-size:11.5px;fill:#b45309;font-weight:bold}
+    .fk{font-size:11.5px;fill:#1d4ed8}
+  </style>
+
+  <!-- OrgUnit -->
+  <g filter="url(#s)"><rect class="tt" x="60" y="110" width="220" height="150"/><rect class="th" x="60" y="110" width="220" height="30" rx="10"/>
+  <text class="thh" x="170" y="130" text-anchor="middle">org_units</text>
+  <text class="pk" x="72" y="160">🔑 id</text>
+  <text class="fld" x="72" y="180">code · name · level</text>
+  <text class="fld" x="72" y="200">level: company/division/process</text>
+  <text class="fk" x="72" y="220">↳ parent_id → org_units.id</text>
+  <text class="fk" x="72" y="240">↳ owner_user_id → users.id</text></g>
+
+  <!-- User -->
+  <g filter="url(#s)"><rect class="tt" x="360" y="110" width="220" height="150"/><rect class="th" x="360" y="110" width="220" height="30" rx="10"/>
+  <text class="thh" x="470" y="130" text-anchor="middle">users</text>
+  <text class="pk" x="372" y="160">🔑 id</text>
+  <text class="fld" x="372" y="180">username · full_name · email</text>
+  <text class="fld" x="372" y="200">hashed_password · is_active</text>
+  <text class="fk" x="372" y="220">↳ role_id → roles.id</text>
+  <text class="fk" x="372" y="240">↳ process_id → org_units.id</text></g>
+
+  <!-- Role -->
+  <g filter="url(#s)"><rect class="tt" x="660" y="110" width="200" height="110"/><rect class="th" x="660" y="110" width="200" height="30" rx="10"/>
+  <text class="thh" x="760" y="130" text-anchor="middle">roles</text>
+  <text class="pk" x="672" y="160">🔑 id</text>
+  <text class="fld" x="672" y="180">code (admin/quality/…)</text>
+  <text class="fld" x="672" y="200">name_fa · name_en · desc</text></g>
+
+  <!-- Setting -->
+  <g filter="url(#s)"><rect class="tt" x="940" y="110" width="200" height="110"/><rect class="th" x="940" y="110" width="200" height="30" rx="10"/>
+  <text class="thh" x="1040" y="130" text-anchor="middle">settings</text>
+  <text class="pk" x="952" y="160">🔑 key</text>
+  <text class="fld" x="952" y="180">value</text>
+  <text class="fld" x="952" y="200">th_green · th_yellow · …</text></g>
+
+  <!-- KPI -->
+  <g filter="url(#s)"><rect class="tt" x="360" y="360" width="260" height="240"/><rect class="th" x="360" y="360" width="260" height="30" rx="10"/>
+  <text class="thh" x="490" y="380" text-anchor="middle">kpis  (KPI Master)</text>
+  <text class="pk" x="372" y="410">🔑 id · code (UNIQUE)</text>
+  <text class="fld" x="372" y="430">name · uom · direction (up/down)</text>
+  <text class="fld" x="372" y="450">frequency · target · warning · critical</text>
+  <text class="fld" x="372" y="470">weight · importance · is_strategic</text>
+  <text class="fld" x="372" y="490">definition · formula · acceptance_text</text>
+  <text class="fld" x="372" y="510">calc_mode · th_green · th_yellow · active</text>
+  <text class="fk" x="372" y="532">↳ process_id → org_units.id</text>
+  <text class="fk" x="372" y="552">↳ data_owner_id → users.id</text>
+  <text class="fk" x="372" y="572">↳ approver_id → users.id</text></g>
+
+  <!-- KPIEntry -->
+  <g filter="url(#s)"><rect class="tt" x="700" y="360" width="270" height="260"/><rect class="th" x="700" y="360" width="270" height="30" rx="10"/>
+  <text class="thh" x="835" y="380" text-anchor="middle">kpi_entries</text>
+  <text class="pk" x="712" y="410">🔑 id</text>
+  <text class="fld" x="712" y="430">year · month  (Jalali)</text>
+  <text class="fld" x="712" y="450">UNIQUE(kpi_id, year, month)</text>
+  <text class="fld" x="712" y="470">actual · achievement · status</text>
+  <text class="fld" x="712" y="490">comment · deviation_cause</text>
+  <text class="fld" x="712" y="510">corrective_action</text>
+  <text class="fld" x="712" y="530">workflow_state (draft→approved)</text>
+  <text class="fld" x="712" y="550">submitted/reviewed/approved_by+at</text>
+  <text class="fk" x="712" y="574">↳ kpi_id → kpis.id</text></g>
+
+  <!-- AuditLog -->
+  <g filter="url(#s)"><rect class="tt" x="60" y="640" width="300" height="170"/><rect class="th" x="60" y="640" width="300" height="30" rx="10"/>
+  <text class="thh" x="210" y="660" text-anchor="middle">audit_logs (Change-Log)</text>
+  <text class="pk" x="72" y="690">🔑 id</text>
+  <text class="fld" x="72" y="710">username · entity_type · entity_id</text>
+  <text class="fld" x="72" y="730">action (create/update/approve/…)</text>
+  <text class="fld" x="72" y="750">field · old_value · new_value</text>
+  <text class="fld" x="72" y="770">reason · created_at</text>
+  <text class="fld" x="72" y="794" fill="#64748b">ثبت کاربر/تاریخ/مقدار قبل و بعد/دلیل</text></g>
+
+  <!-- relationships -->
+  <!-- users.role_id -> roles -->
+  <path d="M580,175 L660,165" fill="none" stroke="#475569" stroke-width="1.4" marker-start="url(#many)" marker-end="url(#one)"/>
+  <!-- users.process_id -> org_units -->
+  <path d="M360,235 L280,225" fill="none" stroke="#475569" stroke-width="1.4" marker-start="url(#many)" marker-end="url(#one)"/>
+  <!-- org_units.parent self -->
+  <path d="M60,150 C25,150 25,210 60,210" fill="none" stroke="#475569" stroke-width="1.4" marker-end="url(#one)"/>
+  <text x="18" y="185" font-size="10" fill="#64748b">self</text>
+  <!-- kpis.process_id -> org_units -->
+  <path d="M360,528 C230,520 190,300 200,260" fill="none" stroke="#475569" stroke-width="1.4" marker-start="url(#many)" marker-end="url(#one)"/>
+  <!-- kpis.data_owner -> users -->
+  <path d="M470,360 L470,260" fill="none" stroke="#475569" stroke-width="1.4" marker-start="url(#many)" marker-end="url(#one)"/>
+  <!-- entries.kpi_id -> kpis -->
+  <path d="M700,500 L620,500" fill="none" stroke="#475569" stroke-width="1.6" marker-start="url(#many)" marker-end="url(#one)"/>
+  <text x="628" y="493" font-size="10" fill="#64748b">1..N</text>
+
+  <text x="1150" y="835" text-anchor="end" font-size="11" fill="#94a3b8" direction="rtl">🔑 کلید اصلی · ↳ کلید خارجی · —&lt; رابطه یک‌به‌چند</text>
+</svg>
