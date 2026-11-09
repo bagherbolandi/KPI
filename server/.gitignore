@@ -1,0 +1,6 @@
+.env
+deploy/certs/
+backend/kpi.db
+__pycache__/
+*.pyc
+.venv/

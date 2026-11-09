@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 820" font-family="Vazirmatn, Tahoma, sans-serif" direction="rtl">
+  <defs>
+    <linearGradient id="hd" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1e4785"/><stop offset="1" stop-color="#12315b"/>
+    </linearGradient>
+    <filter id="sh" x="-5%" y="-5%" width="110%" height="115%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#12315b" flood-opacity="0.15"/>
+    </filter>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto">
+      <path d="M0,0 L8,3 L0,6 Z" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <rect width="1180" height="820" fill="#f4f6fb"/>
+  <text x="590" y="42" text-anchor="middle" font-size="26" font-weight="bold" fill="#12315b">معماری سامانه مدیریت و پایش شاخص‌های کلیدی عملکرد (KPI-MS)</text>
+  <text x="590" y="68" text-anchor="middle" font-size="14" fill="#64748b">Layered Architecture — SPA + REST API + Relational Core</text>
+
+  <!-- Client layer -->
+  <rect x="60" y="95" width="1060" height="120" rx="14" fill="#eef2fb" stroke="#c7d3ec" filter="url(#sh)"/>
+  <text x="1095" y="122" text-anchor="end" font-size="15" font-weight="bold" fill="#1e4785">۱) لایه ارائه (Presentation) — React SPA / RTL فارسی</text>
+  <g font-size="12.5" fill="#0f172a">
+    <rect x="90" y="138" width="150" height="58" rx="9" fill="#fff" stroke="#c7d3ec"/><text x="165" y="163" text-anchor="middle">داشبورد مدیریتی</text><text x="165" y="182" text-anchor="middle" font-size="11" fill="#64748b">نمودارها/KPI</text>
+    <rect x="256" y="138" width="150" height="58" rx="9" fill="#fff" stroke="#c7d3ec"/><text x="331" y="163" text-anchor="middle">ورود و گردش‌کار</text><text x="331" y="182" text-anchor="middle" font-size="11" fill="#64748b">ثبت/تأیید</text>
+    <rect x="422" y="138" width="150" height="58" rx="9" fill="#fff" stroke="#c7d3ec"/><text x="497" y="163" text-anchor="middle">مدیریت شاخص‌ها</text><text x="497" y="182" text-anchor="middle" font-size="11" fill="#64748b">KPI Master</text>
+    <rect x="588" y="138" width="150" height="58" rx="9" fill="#fff" stroke="#c7d3ec"/><text x="663" y="163" text-anchor="middle">ساختار سازمانی</text><text x="663" y="182" text-anchor="middle" font-size="11" fill="#64748b">Org Tree</text>
+    <rect x="754" y="138" width="150" height="58" rx="9" fill="#fff" stroke="#c7d3ec"/><text x="829" y="163" text-anchor="middle">کاربران و نقش‌ها</text><text x="829" y="182" text-anchor="middle" font-size="11" fill="#64748b">RBAC</text>
+    <rect x="920" y="138" width="170" height="58" rx="9" fill="#fff" stroke="#c7d3ec"/><text x="1005" y="163" text-anchor="middle">گزارش‌ها/لاگ</text><text x="1005" y="182" text-anchor="middle" font-size="11" fill="#64748b">Excel · PDF · Audit</text>
+  </g>
+
+  <line x1="590" y1="215" x2="590" y2="248" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="605" y="238" font-size="11.5" fill="#64748b">HTTPS · JWT · REST/JSON</text>
+
+  <!-- API gateway / security -->
+  <rect x="60" y="250" width="1060" height="70" rx="12" fill="url(#hd)" filter="url(#sh)"/>
+  <text x="1095" y="278" text-anchor="end" font-size="15" font-weight="bold" fill="#fff">۲) دروازه API و امنیت — FastAPI · OAuth2/JWT · RBAC Middleware · CORS</text>
+  <text x="1095" y="302" text-anchor="end" font-size="12" fill="#cdd9ec">اعتبارسنجی توکن · کنترل دسترسی مبتنی بر نقش · اعتبارسنجی داده (Pydantic) · مستندسازی OpenAPI</text>
+
+  <line x1="590" y1="320" x2="590" y2="352" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+
+  <!-- Application / domain services -->
+  <rect x="60" y="355" width="1060" height="150" rx="14" fill="#e8f5ee" stroke="#b6e0c8" filter="url(#sh)"/>
+  <text x="1095" y="382" text-anchor="end" font-size="15" font-weight="bold" fill="#15803d">۳) لایه منطق کسب‌وکار (Domain Services)</text>
+  <g font-size="12.5" fill="#0f172a">
+    <rect x="90" y="398" width="185" height="90" rx="10" fill="#fff" stroke="#b6e0c8"/><text x="182" y="428" text-anchor="middle" font-weight="bold">موتور محاسبات KPI</text><text x="182" y="450" text-anchor="middle" font-size="11" fill="#475569">درصد تحقق (صعودی/نزولی)</text><text x="182" y="468" text-anchor="middle" font-size="11" fill="#475569">وضعیت سبز/زرد/قرمز</text>
+    <rect x="291" y="398" width="185" height="90" rx="10" fill="#fff" stroke="#b6e0c8"/><text x="383" y="428" text-anchor="middle" font-weight="bold">موتور گردش‌کار</text><text x="383" y="450" text-anchor="middle" font-size="11" fill="#475569">ثبت ← بررسی کیفیت</text><text x="383" y="468" text-anchor="middle" font-size="11" fill="#475569">← تأیید نهایی</text>
+    <rect x="492" y="398" width="185" height="90" rx="10" fill="#fff" stroke="#b6e0c8"/><text x="584" y="428" text-anchor="middle" font-weight="bold">تجمیع داشبورد</text><text x="584" y="450" text-anchor="middle" font-size="11" fill="#475569">Aggregation/Pareto</text><text x="584" y="468" text-anchor="middle" font-size="11" fill="#475569">روند/رتبه‌بندی</text>
+    <rect x="693" y="398" width="185" height="90" rx="10" fill="#fff" stroke="#b6e0c8"/><text x="785" y="428" text-anchor="middle" font-weight="bold">تقویم شمسی</text><text x="785" y="450" text-anchor="middle" font-size="11" fill="#475569">Jalali Service</text><text x="785" y="468" text-anchor="middle" font-size="11" fill="#475569">دوره‌بندی/فیلتر</text>
+    <rect x="894" y="398" width="196" height="90" rx="10" fill="#fff" stroke="#b6e0c8"/><text x="992" y="428" text-anchor="middle" font-weight="bold">گزارش‌ساز و ممیزی</text><text x="992" y="450" text-anchor="middle" font-size="11" fill="#475569">Excel/PDF Export</text><text x="992" y="468" text-anchor="middle" font-size="11" fill="#475569">Audit/Change-Log</text>
+  </g>
+
+  <line x1="590" y1="505" x2="590" y2="537" stroke="#64748b" stroke-width="2" marker-end="url(#arr)"/>
+  <text x="605" y="527" font-size="11.5" fill="#64748b">SQLAlchemy ORM</text>
+
+  <!-- Data layer -->
+  <rect x="60" y="540" width="1060" height="110" rx="14" fill="#fef6e7" stroke="#f5d99b" filter="url(#sh)"/>
+  <text x="1095" y="567" text-anchor="end" font-size="15" font-weight="bold" fill="#b45309">۴) لایه داده (Persistence)</text>
+  <g font-size="12.5" fill="#0f172a">
+    <rect x="90" y="582" width="230" height="52" rx="10" fill="#fff" stroke="#f5d99b"/><text x="205" y="606" text-anchor="middle" font-weight="bold">PostgreSQL (Production)</text><text x="205" y="624" text-anchor="middle" font-size="11" fill="#475569">دیتابیس مرکزی · Multi-Company</text>
+    <rect x="336" y="582" width="230" height="52" rx="10" fill="#fff" stroke="#f5d99b"/><text x="451" y="606" text-anchor="middle" font-weight="bold">SQLite (Prototype)</text><text x="451" y="624" text-anchor="middle" font-size="11" fill="#475569">خودکفا برای نمونه اولیه</text>
+    <rect x="582" y="582" width="230" height="52" rx="10" fill="#fff" stroke="#f5d99b"/><text x="697" y="606" text-anchor="middle" font-weight="bold">جداول اصلی</text><text x="697" y="624" text-anchor="middle" font-size="11" fill="#475569">KPI · Entry · Org · User · Audit</text>
+    <rect x="828" y="582" width="262" height="52" rx="10" fill="#fff" stroke="#f5d99b"/><text x="959" y="606" text-anchor="middle" font-weight="bold">پشتیبان‌گیری/Migration</text><text x="959" y="624" text-anchor="middle" font-size="11" fill="#475569">Alembic · pg_dump</text>
+  </g>
+
+  <!-- Integration -->
+  <rect x="60" y="672" width="1060" height="112" rx="14" fill="#eef2fb" stroke="#c7d3ec" filter="url(#sh)"/>
+  <text x="1095" y="699" text-anchor="end" font-size="15" font-weight="bold" fill="#1e4785">۵) یکپارچه‌سازی و استقرار</text>
+  <g font-size="12" fill="#0f172a">
+    <rect x="90" y="714" width="200" height="54" rx="10" fill="#fff" stroke="#c7d3ec"/><text x="190" y="738" text-anchor="middle" font-weight="bold">REST API عمومی</text><text x="190" y="756" text-anchor="middle" font-size="11" fill="#475569">اتصال ERP/MES/BI</text>
+    <rect x="306" y="714" width="200" height="54" rx="10" fill="#fff" stroke="#c7d3ec"/><text x="406" y="738" text-anchor="middle" font-weight="bold">ورود اکسل</text><text x="406" y="756" text-anchor="middle" font-size="11" fill="#475569">جایگزینی فایل فعلی</text>
+    <rect x="522" y="714" width="200" height="54" rx="10" fill="#fff" stroke="#c7d3ec"/><text x="622" y="738" text-anchor="middle" font-weight="bold">Docker Compose</text><text x="622" y="756" text-anchor="middle" font-size="11" fill="#475569">استقرار On-Premise</text>
+    <rect x="738" y="714" width="200" height="54" rx="10" fill="#fff" stroke="#c7d3ec"/><text x="838" y="738" text-anchor="middle" font-weight="bold">Nginx + TLS</text><text x="838" y="756" text-anchor="middle" font-size="11" fill="#475569">شبکه داخلی امن</text>
+    <rect x="954" y="714" width="136" height="54" rx="10" fill="#fff" stroke="#c7d3ec"/><text x="1022" y="738" text-anchor="middle" font-weight="bold">SSO/LDAP</text><text x="1022" y="756" text-anchor="middle" font-size="11" fill="#475569">(توسعه آتی)</text>
+  </g>
+</svg>
