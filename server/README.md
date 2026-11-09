@@ -87,6 +87,7 @@ docker compose up -d --build              # api روی پورت 8000 + PostgreSQ
 | [`07-Data-Analysis.md`](docs/07-Data-Analysis.md) | تحلیل فایل اکسل ورودی و پاک‌سازی داده |
 | [`08-Tech-Stack.md`](docs/08-Tech-Stack.md) | مقایسه و انتخاب پشتهٔ فناوری |
 | [`09-Installation-Guide.md`](docs/09-Installation-Guide.md) | **راهنمای نصب گام‌به‌گام برای تیم IT** |
+| [`11-Server-Parity-Report.md`](docs/11-Server-Parity-Report.md) | **گزارش تکمیل نسخه سرور و نتیجه آزمون‌ها** |
 | [`10-Offline-Parity.md`](docs/10-Offline-Parity.md) | **برابری با نسخه آفلاین: اهداف استراتژیک، تحلیل آماری، گزارش دوره‌ای، امنیت ورود** |
 | [`user-guide.html`](docs/user-guide.html) | **راهنمای کاربری ساده (تصویری) — ویژه مدیران و مالکان فرایند** |
 | `architecture.svg` · `erd.svg` · `workflow.svg` | دیاگرام‌ها |
